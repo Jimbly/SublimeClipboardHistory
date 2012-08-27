@@ -1,0 +1,11 @@
+[
+    { "keys": ["shift+delete"], "command": "jch_cut" },
+    { "keys": ["ctrl+insert"], "command": "jch_copy" },
+    { "keys": ["shift+insert"], "command": "jch_paste" },
+    { "keys": ["ctrl+shift+insert"], "command": "jch_paste_choice" },
+
+    { "keys": ["ctrl+x"], "command": "jch_cut" },
+    { "keys": ["ctrl+c"], "command": "jch_copy" },
+    { "keys": ["ctrl+v"], "command": "jch_paste" },
+    { "keys": ["ctrl+shift+v"], "command": "jch_paste_choice" }
+]
