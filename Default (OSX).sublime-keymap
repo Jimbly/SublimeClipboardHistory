@@ -1,6 +1,6 @@
 [
-    { "keys": ["super+x"], "command": "jch_cut" },
-    { "keys": ["super+c"], "command": "jch_copy" },
-    { "keys": ["super+v"], "command": "jch_paste" },
-    { "keys": ["super+shift+v"], "command": "jch_paste_choice" }
+  { "keys": ["super+x"], "command": "jch_cut" },
+  { "keys": ["super+c"], "command": "jch_copy" },
+  { "keys": ["super+v"], "command": "jch_paste" },
+  { "keys": ["super+shift+v"], "command": "jch_paste_choice" }
 ]
