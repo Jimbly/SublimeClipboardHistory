@@ -44,3 +44,12 @@ Command Reference
 `jch_paste`: Pastes the most recently copied data, either from the clipboar history, or the OS clipboad if it was more recently modified.
 
 `jch_paste_choice`: Shows a menu displaying the clipboard history allowing for a choice of what to paste.
+
+Feedback and Future Plans
+-------------------------
+
+Do you not like some behavior?  Are you missing some feature another clipboard history plugin has?  Please let me
+know, it would be easy to extend this with a few settings to adjust subtle behaviors.  The current behavior is
+simply what grew organically from starting with an existing plugin, and any time I pressed one of the 4 relevant
+hotkeys, if it did not do exactly what I expected (based primarily on my expectations coming from Visual Studio
+and Visual Asset), I made it do so.
