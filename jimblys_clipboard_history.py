@@ -13,7 +13,7 @@ import string, re
 
 class JchUtil:
     whitespace_regex = re.compile('^\s+$')
-    trailing_cr_regex = re.compile('.*\n\s*$')
+    trailing_cr_regex = re.compile('(.|\n)*\n\s*$')
 
     @classmethod
     def is_partial_copy(cls, view):
@@ -39,7 +39,6 @@ class JchKillRing:
         self.expect_modification = False
 
     def seal(self):
-        self.kill_points = []
         self.kill_id = 0
 
     def push(self, text, partial):
@@ -62,7 +61,8 @@ class JchKillRing:
         if (view.id() != self.kill_id) or not cut:
             # view has changed, ensure the last kill ring entry will not be
             # appended to
-            self.seal()
+            self.kill_id = 0
+            self.kill_points = []
 
         regions = []
         for s in view.sel():
@@ -166,5 +166,5 @@ class JchEventListener(sublime_plugin.EventListener):
         # Really just care about catching "undo" events, so this prevents
         # Cut, Undo, Cut from appending to the buffer.
         if not jch_kill_ring.expect_modification:
-            jch_kill_ring.seal()
+            jch_kill_ring.kill_id = 0
         jch_kill_ring.expect_modification = False
