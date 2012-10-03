@@ -105,27 +105,32 @@ class JchKillRing:
         obj = self.get(idx)
         text = obj.text
         sublime.set_clipboard(text)
-        for s in regions:
-            # act like paste
-            if text.find("\n") == -1 or not s.empty() or obj.partial:
-                # Regular text, no newline
-                # Or it was a partial-line copy, don't do full-line insert
-                num = view.insert(edit, s.begin(), text)
-                view.erase(edit, sublime.Region(s.begin() + num,
-                    s.end() + num))
-            else:
-                # Pasted text has a newline, insert it on the line before
-                #  the selection, instead of in the middle of the line
-                # Before that, check if pasting onto an empty line
-                if JchUtil.whitespace_regex.match(view.substr(view.full_line(s))):
-                    # Only whitespace, just insert
-                    pass
+
+        if len(regions) > 1:
+            # Multiple regions, let sublime handle it
+            view.run_command("paste")
+        else:
+            for s in regions:
+                # act like paste
+                if text.find("\n") == -1 or not s.empty() or obj.partial:
+                    # Regular text, no newline
+                    # Or it was a partial-line copy, don't do full-line insert
+                    num = view.insert(edit, s.begin(), text)
+                    view.erase(edit, sublime.Region(s.begin() + num,
+                        s.end() + num))
                 else:
-                    # Some non-whitespace, if our text does not end with a
-                    # carriage return, add one
-                    if not JchUtil.trailing_cr_regex.match(text):
-                        text = text + '\n'
-                view.insert(edit, view.line(s.begin()).begin(), text)
+                    # Pasted text has a newline, insert it on the line before
+                    #  the selection, instead of in the middle of the line
+                    # Before that, check if pasting onto an empty line
+                    if JchUtil.whitespace_regex.match(view.substr(view.full_line(s))):
+                        # Only whitespace, just insert
+                        pass
+                    else:
+                        # Some non-whitespace, if our text does not end with a
+                        # carriage return, add one
+                        if not JchUtil.trailing_cr_regex.match(text):
+                            text = text + '\n'
+                    view.insert(edit, view.line(s.begin()).begin(), text)
 
 jch_kill_ring = JchKillRing()
 
