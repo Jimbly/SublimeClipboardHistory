@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "Jimbly's Clipboard History: Paste Choice",
+        "command": "jch_paste_choice"
+    }
+    ,{
+        "caption": "Jimbly's Clipboard History: Paste",
+        "command": "jch_paste"
+    }
+    ,{
+        "caption": "Jimbly's Clipboard History: Copy",
+        "command": "jch_copy"
+    }
+    ,{
+        "caption": "Jimbly's Clipboard History: Cut",
+        "command": "jch_cut"
+    }
+]
