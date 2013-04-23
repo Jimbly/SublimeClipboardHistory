@@ -52,10 +52,17 @@ class JchKillRing:
             return False
 
         obj = JchKillRingEntry(text, partial)
+        self.RemoveDuplicate(obj)
         self.buffer.insert(0, obj)
         if len(self.buffer) > self.limit:
             self.buffer.pop()
         return True
+
+    def RemoveDuplicate(self, obj):
+        for e in self.buffer:
+            if e.__dict__ == obj.__dict__:
+                self.buffer.remove(e)
+                break
 
     def add(self, view, text, cut, partial):
         if (view.id() != self.kill_id) or not cut:
