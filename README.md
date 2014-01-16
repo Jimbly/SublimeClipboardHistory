@@ -52,4 +52,4 @@ Do you not like some behavior?  Are you missing some feature another clipboard h
 know, it would be easy to extend this with a few settings to adjust subtle behaviors.  The current behavior is
 simply what grew organically from starting with an existing plugin, and any time I pressed one of the 4 relevant
 hotkeys, if it did not do exactly what I expected (based primarily on my expectations coming from Visual Studio
-and Visual Asset), I made it do so.
+and Visual Assist), I made it do so.
