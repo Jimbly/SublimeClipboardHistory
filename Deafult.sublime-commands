@@ -15,4 +15,8 @@
         "caption": "Jimbly's Clipboard History: Cut",
         "command": "jch_cut"
     }
+    ,{
+        "caption": "Jimbly's Clipboard History: Clear History",
+        "command": "jch_clear_history"
+    }
 ]

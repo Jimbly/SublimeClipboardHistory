@@ -52,13 +52,16 @@ class JchKillRing:
             return False
 
         obj = JchKillRingEntry(text, partial)
-        self.RemoveDuplicate(obj)
+        self.removeDuplicate(obj)
         self.buffer.insert(0, obj)
         if len(self.buffer) > self.limit:
             self.buffer.pop()
         return True
 
-    def RemoveDuplicate(self, obj):
+    def clear(self):
+        self.buffer = []
+
+    def removeDuplicate(self, obj):
         for e in self.buffer:
             if e.__dict__ == obj.__dict__:
                 self.buffer.remove(e)
@@ -171,6 +174,9 @@ class JchCutCommand(sublime_plugin.TextCommand):
         jch_kill_ring.add(self.view, sublime.get_clipboard(), True, partial)
         jch_kill_ring.expect_modification = True
 
+class JchClearHistoryCommand(sublime_plugin.TextCommand):
+    def run(self, edit, **args):
+        jch_kill_ring.clear()
 
 class JchEventListener(sublime_plugin.EventListener):
     # restore on load for new opened tabs or previews.
