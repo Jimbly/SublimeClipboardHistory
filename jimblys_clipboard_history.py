@@ -47,7 +47,7 @@ class JchKillRing:
         However, we do need some kind of sanitation to make sure
         we don't push too many white spaces."""
 
-        sanitized = string.strip(text)
+        sanitized = text.strip()
         if len(sanitized) == 0:
             return False
 
@@ -147,7 +147,7 @@ jch_kill_ring = JchKillRing()
 
 class JchPasteChoiceCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        names = [string.strip(jch_kill_ring.get(idx).text)[:100] for idx in range(len(jch_kill_ring))]
+        names = [jch_kill_ring.get(idx).text.strip()[:100] for idx in range(len(jch_kill_ring))]
         if len(names) > 0:
             self.view.window().show_quick_panel(names, functools.partial(jch_kill_ring.insert, self.view, edit))
 
