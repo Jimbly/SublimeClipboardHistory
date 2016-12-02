@@ -1,7 +1,7 @@
 SublimeClipboardHistory
 =======================
 
-Jimbly's Clipboard History plugin for Sublime Text 2.  A perfect blend
+Jimbly's Clipboard History plugin for Sublime Text 3.  A perfect blend
 of behaviors from Visual Assist's clipboard history and emacs.
 
 Some code derived from [sublemacspro](https://github.com/grundprinzip/sublemacspro).
@@ -19,7 +19,7 @@ Installation
 
 Or:
 
-1. Open the Sublime Text 2 Packages folder using Preferences | Browse Packages...
+1. Open the Sublime Text 3 Packages folder using Preferences | Browse Packages...
 2. Clone this repo
 
 Usage

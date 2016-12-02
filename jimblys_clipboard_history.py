@@ -144,12 +144,17 @@ class JchKillRing:
 
 jch_kill_ring = JchKillRing()
 
+class JchKillRingInsertCommand(sublime_plugin.TextCommand):
+    def run(self, edit, idx):
+        jch_kill_ring.insert(self.view, edit, idx)
+
 
 class JchPasteChoiceCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         names = [jch_kill_ring.get(idx).text.strip()[:100] for idx in range(len(jch_kill_ring))]
         if len(names) > 0:
-            self.view.window().show_quick_panel(names, functools.partial(jch_kill_ring.insert, self.view, edit))
+            # self.view.window().show_quick_panel(names, functools.partial(jch_kill_ring.insert, self.view, edit))
+            self.view.window().show_quick_panel(names, lambda idx: self.view.run_command("jch_kill_ring_insert", {"idx": idx}))
 
 class JchPasteCommand(sublime_plugin.TextCommand):
     def run(self, edit):
