@@ -1,13 +1,14 @@
 SublimeClipboardHistory
 =======================
 
-Jimbly's Clipboard History plugin for Sublime Text 3.  A perfect blend
+Jimbly's Clipboard History plugin for Sublime Text 2 or 3.  A perfect blend
 of behaviors from Visual Assist's clipboard history and emacs.
 
 Some code derived from [sublemacspro](https://github.com/grundprinzip/sublemacspro).
 
 Features:
 * Paste from menu of previous clipboard entries
+** Compared to the built-in command added in Sublime Text 3, this plugin uses a pop-up menu which respects your Sublime keybinds instead of an OS pop-up menu
 * Integrates with OS clipboard
 * Multiple sequential cuts will append to most recent clipboard entry
 * Full-line copy (when nothing is selected or an entire line is selected) pastes as full lines (similar to default Sublime/Visual Studio behaviors)
@@ -19,7 +20,7 @@ Installation
 
 Or:
 
-1. Open the Sublime Text 3 Packages folder using Preferences | Browse Packages...
+1. Open the Sublime Text Packages folder using Preferences | Browse Packages...
 2. Clone this repo
 
 Usage
